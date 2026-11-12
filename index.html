@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyStudio</title>
+  <meta name="description" content="A small personal workspace: tasks, notes and idea generator.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1 id="app-name">MyStudio</h1>
+    <nav class="tabs" aria-label="Sections">
+      <a href="#tasks" data-view="tasks" class="tab">Tasks</a>
+      <a href="#notes" data-view="notes" class="tab">Notes</a>
+      <a href="#ideas" data-view="ideas" class="tab">Ideas</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="view-tasks" class="view" hidden>
+      <form id="task-form" class="row">
+        <input id="task-input" type="text" placeholder="What needs doing?" maxlength="200" required aria-label="New task">
+        <button type="submit">Add</button>
+      </form>
+      <p class="muted" id="task-count"></p>
+      <ul id="task-list" class="list"></ul>
+    </section>
+
+    <section id="view-notes" class="view" hidden>
+      <form id="note-form" class="stack">
+        <input id="note-title" type="text" placeholder="Title (optional)" maxlength="120" aria-label="Note title">
+        <textarea id="note-body" rows="4" placeholder="Write a note..." maxlength="5000" required aria-label="Note text"></textarea>
+        <button type="submit">Save note</button>
+      </form>
+      <ul id="note-list" class="list"></ul>
+    </section>
+
+    <section id="view-ideas" class="view" hidden>
+      <div class="idea-card">
+        <p id="idea-text" class="idea-text">Tap the button for an idea.</p>
+        <div class="row">
+          <button id="idea-next" type="button">Give me an idea</button>
+          <button id="idea-save" type="button" class="secondary" disabled>Add as task</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="muted small">Saved on this device only.</footer>
+  <script src="app.js"></script>
+</body>
+</html>
